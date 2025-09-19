@@ -1,0 +1,18 @@
+{
+  "vlm-train": {
+    "root": "TSDA/data_finetune/",
+    "annotation": "TSDA_internvl3_train.jsonl",
+    "data_augment": false,
+    "max_dynamic_patch":4,
+    "repeat_time": 1,
+    "length": 12985
+  },
+  "vlm-val": {
+    "root": "TSDA/data_finetune/",
+    "annotation": "TSDA_internvl3_train.jsonl",
+    "data_augment": false,
+    "max_dynamic_patch": 4,
+    "repeat_time": 1,
+    "length": 5270
+  }
+}

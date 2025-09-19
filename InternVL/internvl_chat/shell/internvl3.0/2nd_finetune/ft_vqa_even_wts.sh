@@ -1,0 +1,68 @@
+
+set -x
+
+GPUS=${GPUS:-8}
+BATCH_SIZE=${BATCH_SIZE:-64}
+PER_DEVICE_BATCH_SIZE=${PER_DEVICE_BATCH_SIZE:-1}
+# Calculate accumulation steps safely
+GRADIENT_ACC=$((BATCH_SIZE / (PER_DEVICE_BATCH_SIZE * GPUS)))
+
+
+
+export PYTHONPATH="${PYTHONPATH}:$(pwd)"
+export MASTER_PORT=34229
+export TF_CPP_MIN_LOG_LEVEL=3
+export LAUNCHER=pytorch
+
+
+OUTPUT_DIR='work_dirs/internvl_chat_v3/even_wts_vqa'
+
+if [ ! -d "$OUTPUT_DIR" ]; then
+  mkdir -p "$OUTPUT_DIR"
+fi
+
+export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
+
+  torchrun \
+  --nnodes=1 \
+  --node_rank=0 \
+  --master_addr=127.0.0.1 \
+  --nproc_per_node=${GPUS} \
+  --master_port=${MASTER_PORT} \
+  internvl/train/internvl_chat_finetune.py \
+  --model_name_or_path "/WAVE/dmlab/ridham/AICITY_Track2_dmlab/gen_vlm_model/InternVL3-14B" \
+  --conv_style "internvl2_5" \
+  --use_fast_tokenizer False \
+  --output_dir ${OUTPUT_DIR} \
+  --meta_path "/WAVE/dmlab/ridham/AICITY_Track2_dmlab/InternVL/internvl_chat/shell/data/aic_wts_subtask2.json" \
+ --overwrite_output_dir True \
+  --force_image_size 336 \
+  --max_dynamic_patch 4 \
+  --down_sample_ratio 0.5 \
+  --drop_path_rate 0.1 \
+  --freeze_llm False \
+  --freeze_mlp False \
+  --freeze_backbone False \
+  --vision_select_layer -1 \
+  --dataloader_num_workers 4 \
+  --bf16 True \
+  --num_train_epochs 2 \
+  --per_device_train_batch_size ${PER_DEVICE_BATCH_SIZE} \
+  --gradient_accumulation_steps ${GRADIENT_ACC} \
+  --evaluation_strategy "no" \
+  --save_strategy "epoch" \
+  --save_total_limit 2 \
+  --learning_rate 2e-5 \
+  --weight_decay 0.05 \
+  --warmup_ratio 0.03 \
+  --lr_scheduler_type "cosine" \
+  --logging_steps 1 \
+  --max_seq_length 6144 \
+  --do_train True \
+  --grad_checkpoint True \
+  --group_by_length True \
+  --use_thumbnail True \
+  --ps_version 'v2' \
+  --deepspeed "zero_stage2_config.json" \
+  --report_to "tensorboard" \
+  2>&1 | tee -a "${OUTPUT_DIR}/caption_training_log.txt"

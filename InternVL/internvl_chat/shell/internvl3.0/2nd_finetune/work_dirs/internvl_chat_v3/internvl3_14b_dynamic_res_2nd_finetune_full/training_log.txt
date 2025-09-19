@@ -1,0 +1,88 @@
+[W socket.cpp:464] [c10d] The server socket cannot be initialized on [::]:34229 (errno: 97 - Address family not supported by protocol).
+[W socket.cpp:697] [c10d] The client socket cannot be initialized to connect to [localhost]:34229 (errno: 97 - Address family not supported by protocol).
+/WAVE/users2/unix/rkachhadiya/.conda/envs/internvl3_121/bin/python: can't open file '/WAVE/dmlab/ridham/AICITY_Track2_dmlab/InternVL/internvl_chat/shell/internvl3.0/2nd_finetune/internvl/train/internvl_chat_finetune.py': [Errno 2] No such file or directory
+/WAVE/users2/unix/rkachhadiya/.conda/envs/internvl3_121/bin/python: can't open file '/WAVE/dmlab/ridham/AICITY_Track2_dmlab/InternVL/internvl_chat/shell/internvl3.0/2nd_finetune/internvl/train/internvl_chat_finetune.py': [Errno 2] No such file or directory
+/WAVE/users2/unix/rkachhadiya/.conda/envs/internvl3_121/bin/python: can't open file '/WAVE/dmlab/ridham/AICITY_Track2_dmlab/InternVL/internvl_chat/shell/internvl3.0/2nd_finetune/internvl/train/internvl_chat_finetune.py': [Errno 2] No such file or directory
+/WAVE/users2/unix/rkachhadiya/.conda/envs/internvl3_121/bin/python: can't open file '/WAVE/dmlab/ridham/AICITY_Track2_dmlab/InternVL/internvl_chat/shell/internvl3.0/2nd_finetune/internvl/train/internvl_chat_finetune.py': [Errno 2] No such file or directory
+/WAVE/users2/unix/rkachhadiya/.conda/envs/internvl3_121/bin/python: can't open file '/WAVE/dmlab/ridham/AICITY_Track2_dmlab/InternVL/internvl_chat/shell/internvl3.0/2nd_finetune/internvl/train/internvl_chat_finetune.py': [Errno 2] No such file or directory
+/WAVE/users2/unix/rkachhadiya/.conda/envs/internvl3_121/bin/python: can't open file '/WAVE/dmlab/ridham/AICITY_Track2_dmlab/InternVL/internvl_chat/shell/internvl3.0/2nd_finetune/internvl/train/internvl_chat_finetune.py': [Errno 2] No such file or directory
+/WAVE/users2/unix/rkachhadiya/.conda/envs/internvl3_121/bin/python: can't open file '/WAVE/dmlab/ridham/AICITY_Track2_dmlab/InternVL/internvl_chat/shell/internvl3.0/2nd_finetune/internvl/train/internvl_chat_finetune.py': [Errno 2] No such file or directory
+/WAVE/users2/unix/rkachhadiya/.conda/envs/internvl3_121/bin/python: can't open file '/WAVE/dmlab/ridham/AICITY_Track2_dmlab/InternVL/internvl_chat/shell/internvl3.0/2nd_finetune/internvl/train/internvl_chat_finetune.py': [Errno 2] No such file or directory
+[2025-06-06 04:30:52,915] torch.distributed.elastic.multiprocessing.api: [ERROR] failed (exitcode: 2) local_rank: 0 (pid: 1501182) of binary: /WAVE/users2/unix/rkachhadiya/.conda/envs/internvl3_121/bin/python
+Traceback (most recent call last):
+  File "/WAVE/users2/unix/rkachhadiya/.conda/envs/internvl3_121/bin/torchrun", line 33, in <module>
+    sys.exit(load_entry_point('torch==2.2.0+cu121', 'console_scripts', 'torchrun')())
+  File "/WAVE/users2/unix/rkachhadiya/.conda/envs/internvl3_121/lib/python3.9/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 347, in wrapper
+    return f(*args, **kwargs)
+  File "/WAVE/users2/unix/rkachhadiya/.conda/envs/internvl3_121/lib/python3.9/site-packages/torch/distributed/run.py", line 812, in main
+    run(args)
+  File "/WAVE/users2/unix/rkachhadiya/.conda/envs/internvl3_121/lib/python3.9/site-packages/torch/distributed/run.py", line 803, in run
+    elastic_launch(
+  File "/WAVE/users2/unix/rkachhadiya/.conda/envs/internvl3_121/lib/python3.9/site-packages/torch/distributed/launcher/api.py", line 135, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/WAVE/users2/unix/rkachhadiya/.conda/envs/internvl3_121/lib/python3.9/site-packages/torch/distributed/launcher/api.py", line 268, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+internvl/train/internvl_chat_finetune.py FAILED
+------------------------------------------------------------
+Failures:
+[1]:
+  time      : 2025-06-06_04:30:52
+  host      : dmlab02.wave.scu.edu
+  rank      : 1 (local_rank: 1)
+  exitcode  : 2 (pid: 1501183)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+[2]:
+  time      : 2025-06-06_04:30:52
+  host      : dmlab02.wave.scu.edu
+  rank      : 2 (local_rank: 2)
+  exitcode  : 2 (pid: 1501184)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+[3]:
+  time      : 2025-06-06_04:30:52
+  host      : dmlab02.wave.scu.edu
+  rank      : 3 (local_rank: 3)
+  exitcode  : 2 (pid: 1501185)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+[4]:
+  time      : 2025-06-06_04:30:52
+  host      : dmlab02.wave.scu.edu
+  rank      : 4 (local_rank: 4)
+  exitcode  : 2 (pid: 1501186)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+[5]:
+  time      : 2025-06-06_04:30:52
+  host      : dmlab02.wave.scu.edu
+  rank      : 5 (local_rank: 5)
+  exitcode  : 2 (pid: 1501187)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+[6]:
+  time      : 2025-06-06_04:30:52
+  host      : dmlab02.wave.scu.edu
+  rank      : 6 (local_rank: 6)
+  exitcode  : 2 (pid: 1501188)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+[7]:
+  time      : 2025-06-06_04:30:52
+  host      : dmlab02.wave.scu.edu
+  rank      : 7 (local_rank: 7)
+  exitcode  : 2 (pid: 1501189)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2025-06-06_04:30:52
+  host      : dmlab02.wave.scu.edu
+  rank      : 0 (local_rank: 0)
+  exitcode  : 2 (pid: 1501182)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================
