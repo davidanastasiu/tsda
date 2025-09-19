@@ -181,7 +181,7 @@ Eg. `mid_frames_vqa.json` (Metadata file)
 ```
 Similarly, Create meta data .jsonl files for each variant.
 
-Navigate to `tsda/InternVL/internvl_chat/shell/internvl3.0/2nd_finetune/` and configure paths or make any changes if needed in all the scripts starting with "ft_"
+Navigate to `tsda/InternVL/internvl_chat/shell/internvl3.0/2nd_finetune/` and configure paths or make any changes if needed in all the scripts starting with "ft_".
 
 Note: Use the default hyper parameters for optimal training and performance.
 
@@ -227,7 +227,7 @@ sh inference_vqa_val.sh
 
 ### Validation Post Processing
 
-For postprocessing on validation set, you can run the following script on all the predictions at once and results for all agents will be store inside `vqa_results_val`
+For postprocessing on validation set, you can run the following script on all the predictions at once and results for all agents will be store inside `vqa_results_val`.
 
 ```bash
 cd tsda/evaluation
@@ -237,7 +237,7 @@ Note: This will generate predictions that can be used for evaluation and multi a
 
 ### Multi Agent Cooperation 
 
-#### Validation results for all the agents is used to generate multi agent collaborated results based on agents performing best on specific group of questions and the dataset split
+Validation results for all the agents is used to generate multi agent collaborated results based on agents performing best on specific group of questions and the dataset split.
 
 Following script will output `best_QA_agents_vqa.json` that contains mapping of each question with best performing agent and `multi_agent_results_vqa.json` that contains responses from all the agents.
 
@@ -309,7 +309,7 @@ cd evaluation/
 sh postprocess_cap_val_all.sh
 ```
 
-Captioning agents validation results scores can be printed and evaluated using `evaluate_caption_agents.py` and best performing agents for a specific caption/dataset type can be chosen accordingly
+Captioning agents validation results scores can be printed and evaluated using `evaluate_caption_agents.py` and best performing agents for a specific caption/dataset type can be chosen accordingly.
 
 ### Inference, Post Processing, and Results in Submission format (Test Set)
 
